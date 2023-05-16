@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	printf("The number 12 in hexadecimals: %x\n", v);
 	printf("The number 12 in hexadecimal capital: %X\n", v);
 	printf("The number 12 in hex with the ox prefix: %#x\n", v);
+	printf("Actual hex values: %08x\n",v);
 	printf("Print an address of v : %p\n", &v);
 
 	return 0;
