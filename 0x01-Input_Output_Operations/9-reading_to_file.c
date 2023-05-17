@@ -1,34 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-typedef struct point
+int main(int argc, char*argv[])
 {
-    int x, y;
-} Point;
+    FILE* file;
+    char line[256];
 
-int main(int argc, char* argv[])
-{
-    Point p1;
+    file = fopen("file.txt", "r");
 
-    FILE* in;
-
-    fopen("file.txt", "r");
-
-    if(in == NULL)
+    if(file == NULL)
     {
-        puts("Failed to open file");
+        puts("Failed to open file!");
         return 1;
     }
 
-    //reading the coordinates
-    fscanf(in, "%d, %d", &p1.x, &p1.y);
+    while(fgets(line, sizeof(line), file) != NULL)
+    {
+        printf("%s", line);
+    }
 
-    //close the file
-    fclose(in);
-
-    //print the coordinates
-    printf("Coordinates: %d, %d\n", p1.x, p1.y);
-
+    fclose(file);
     return 0;
 }
